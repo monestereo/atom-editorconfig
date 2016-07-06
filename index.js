@@ -32,6 +32,12 @@ function init(editor) {
 
 		if (indentStyle === 'tab') {
 			editor.setSoftTabs(false);
+			Object.defineProperty(editor, 'softTabs', {
+				get: function () {
+					return false;
+				},
+				set: function () {}
+			});
 
 			if (config.tab_width) {
 				editor.setTabLength(config.tab_width);
